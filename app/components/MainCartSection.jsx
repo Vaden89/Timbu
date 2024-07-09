@@ -1,8 +1,14 @@
+"use client";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 export const MainCartSection = () => {
+  const router = useRouter();
+  const goToCheckOut = () => {
+    router.push("/checkout");
+  };
   return (
-    <div className="w-full flex flex-col lg:flex-row p-4 lg:px-8 gap-12 capitalize mb-28">
+    <div className="w-full flex flex-col lg:flex-row p-4 lg:px-8 gap-12 capitalize  lg:mb-28">
       <div className="lg:w-2/3 w-full ">
         <span className="text-2xl">Cart</span>
         <hr className="mt-4" />
@@ -20,7 +26,7 @@ export const MainCartSection = () => {
                 />
               </div>
             </div>
-            <span className="lg:mb-6 mt-6 text-sm">
+            <span className="lg:mb-6 mt-6 text-sm md:text-lg">
               Levis - Slim Fit - Denim - Dark Indigo
             </span>
           </div>
@@ -66,7 +72,10 @@ export const MainCartSection = () => {
           </button>
         </div>
         <span className="text-xl font-semibold mb-4">Total</span>
-        <button className="bg-[#377E7F] text-white text-lg h-14">
+        <button
+          onClick={goToCheckOut}
+          className="bg-[#377E7F] text-white text-lg h-14"
+        >
           Proceed To Checkout
         </button>
       </div>
