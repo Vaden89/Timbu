@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+*::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  background-color: #fcfcfc;
+}
+
+.landing-section {
+  background-image: url("/Landing-Img.png");
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .landing-section {
+    background-image: url("/Landing-Img.png");
+    background-position: center;
+    background-size: cover;
+  }
+}
