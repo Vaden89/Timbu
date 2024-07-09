@@ -8,7 +8,7 @@ export const FooterSection = () => {
           Subscribe to our newsletter to get updates{" "}
           <br className="lg:flex hidden" /> to our latest collection
         </h1>
-        <p className="text-[#828282] text-sm md:text-base lg:text-base">
+        <p className="text-[#828282] text-xs md:text-base lg:text-base">
           Get 20% off your first order by subscribing to our newsletter
         </p>
         <div className="lg:w-[511px] md:w-[511px] h-14 flex items-center justify-between">
@@ -38,7 +38,7 @@ export const FooterSection = () => {
               width={110}
               height={110}
               alt="timbu"
-              className="hidden lg:hidden"
+              className="hidden md:flex lg:hidden"
             />
             <Image
               src={"/Logo2.jpg"}

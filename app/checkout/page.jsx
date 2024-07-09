@@ -6,7 +6,7 @@ export default function Checkout() {
   return (
     <div>
       <NavBar />
-      <h1 className="text-2xl font-semibold px-10 mt-10">Cart</h1>
+      <h1 className="text-xl font-semibold px-6 lg:px-10 mt-10">CART</h1>
       <MainCheckoutSection />
       <FooterSection />
     </div>

@@ -41,7 +41,7 @@ export const LandingSection = () => {
           </div>
         </div>
         <div
-          className="w-full h-[40vh] bg-cover bg-no-repeat mt-2"
+          className="w-full h-[30vh] bg-contain bg-no-repeat mt-2"
           style={{ backgroundImage: "url('/Landing-Img2.png')" }}
         ></div>
       </div>

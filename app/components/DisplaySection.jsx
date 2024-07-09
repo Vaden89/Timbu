@@ -1,6 +1,13 @@
+"use client";
 import { newInInfo, newInInfoSmall } from "../resources/data";
 import { ProductCard } from "./ProductCard";
+import { useRouter } from "next/navigation";
 export const DisplaySection = (props) => {
+  const router = useRouter();
+
+  const goToCart = () => {
+    router.push("/cart");
+  };
   return (
     <div className="w-full p-8 flex flex-col gap-4   mt-4">
       <div className="w-full flex items-center justify-between">
@@ -37,7 +44,10 @@ export const DisplaySection = (props) => {
                 price={item.price}
               />
               <div className="w-[95%] ">
-                <button className="ml-2 mt-2 p-4 bg-[#0F2324] text-white">
+                <button
+                  onClick={goToCart}
+                  className="ml-2 mt-2 p-4 bg-[#0F2324] text-white"
+                >
                   Add to Cart
                 </button>
               </div>

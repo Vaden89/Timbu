@@ -2,9 +2,10 @@ import Image from "next/image";
 
 export const MainCheckoutSection = () => {
   return (
-    <div className="w-full flex lg:flex-col gap-14 px-6 lg:px-10">
-      <div className="w-1/2 flex flex-col gap-4">
+    <div className="w-full flex flex-col-reverse md:flex-row lg:flex-row gap-10 lg:gap-14 px-6 lg:px-10 mt-4">
+      <div className="w-full lg:w-1/2 flex flex-col gap-4">
         <div className="flex flex-col gap-4">
+          <h1 className="text-xl font-semibold">DELIVERY DETAILS</h1>
           <input
             type="text"
             name="text"
@@ -84,7 +85,7 @@ export const MainCheckoutSection = () => {
         </div>
         <div className="mt-10 flex flex-col gap-4">
           <h1 className="text-2xl font-semibold"> Payment</h1>
-          <div className="border-2 border-[#828282] rounded-2xl">
+          <div className="border-2 border-[#828282] rounded-xl">
             <div className="flex p-4 gap-4 items-center">
               <input type="radio" name="cardpayment" id="cardpayment" />
               <label htmlFor="cardpayment">Card Payment</label>
@@ -102,18 +103,19 @@ export const MainCheckoutSection = () => {
           </div>
         </div>
       </div>
-      <div className="w-1/2 flex flex-col items-center justify-start gap-4 lg:px-6">
+      <div className="w-full lg:w-1/2 flex flex-col items-center justify-start gap-4 lg:px-6">
         <div className="w-full flex  justify-between items-center">
           <div className="flex items-center justify-center gap-2 lg:gap-8">
             <Image
               src={"/Card-jacket1.png"}
-              width={80}
-              height={80}
+              width={90}
+              height={90}
               alt="jacket"
             />
             <div className="flex flex-col">
               <span className="font-semibold">
-                Levis Slim-Fit <br className="lg:hidden" /> Denim Dark Indigo
+                Levis Slim-Fit <br className="lg:hidden" /> Denim Dark{" "}
+                <br className="lg:hidden md:hidden" /> Indigo
               </span>
               <span className="font-thin">XXL</span>
             </div>
