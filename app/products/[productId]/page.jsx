@@ -8,7 +8,7 @@ async function getData(id) {
   return res;
 }
 
-export default function Product({ params }) {
+export default function Product() {
   return (
     <main className="w-screen h-screen ">
       <NavBar />
