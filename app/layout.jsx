@@ -1,17 +1,16 @@
+"use client";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { CartProvider } from "./providers/context";
 
 const inter = Inter({ subsets: ["latin"] });
-
-export const metadata = {
-  title: "Timbu",
-  description: "HNG's First Online Clothes Store",
-};
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <CartProvider>
+        <body className={inter.className}>{children}</body>
+      </CartProvider>
     </html>
   );
 }

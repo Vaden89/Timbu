@@ -1,6 +1,41 @@
+"use client";
 import Image from "next/image";
+import CartContext from "../providers/context";
+import { getSingleProduct } from "../api/product/route";
+import { useContext, useState, useEffect } from "react";
 
 export const MainCheckoutSection = () => {
+  const { items } = useContext(CartContext);
+  const [data, setData] = useState([]);
+  const [loading, setloading] = useState(false);
+  useEffect(() => {
+    console.log(items);
+    sth();
+  }, []);
+
+  async function sth() {
+    setloading(true);
+    try {
+      const results = await Promise.all(
+        items.map(async (item) => {
+          const res = await getSingleProduct(item);
+          setData((prev) => [...prev, res]);
+        })
+      );
+    } catch (error) {
+      throw new Error(
+        "There was an error while fecthing product information",
+        error
+      );
+    } finally {
+      setloading(false);
+    }
+  }
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div className="w-full flex flex-col-reverse md:flex-row lg:flex-row gap-10 lg:gap-14 px-6 lg:px-10 mt-4">
       <div className="w-full lg:w-1/2 flex flex-col gap-4">
@@ -83,7 +118,7 @@ export const MainCheckoutSection = () => {
             <span>Save this information for next time</span>
           </div>
         </div>
-        <div className="mt-10 flex flex-col gap-4">
+        <div className="mt-10 flex flex-col gap-3">
           <h1 className="text-2xl font-semibold"> Payment</h1>
           <div className="border-2 border-[#828282] rounded-xl">
             <div className="flex p-4 gap-4 items-center">
@@ -101,27 +136,39 @@ export const MainCheckoutSection = () => {
               <label htmlFor="cryptopayment">Crypto Payment</label>
             </div>
           </div>
+          <button className="w-full text-white font-medium bg-[#377E7F] p-4">
+            Pay now
+          </button>
         </div>
       </div>
-      <div className="w-full lg:w-1/2 flex flex-col items-center justify-start gap-4 lg:px-6">
-        <div className="w-full flex  justify-between items-center">
-          <div className="flex items-center justify-center gap-2 lg:gap-8">
-            <Image
-              src={"/Card-jacket1.png"}
-              width={90}
-              height={90}
-              alt="jacket"
-            />
-            <div className="flex flex-col">
-              <span className="font-semibold">
-                Levis Slim-Fit <br className="lg:hidden" /> Denim Dark{" "}
-                <br className="lg:hidden md:hidden" /> Indigo
-              </span>
-              <span className="font-thin">XXL</span>
-            </div>
-          </div>
-          <span className="font-semibold">N35,000</span>
+      <div className="w-full lg:w-1/2 flex flex-col items-center justify-start gap-4 lg:px-6 ">
+        <div className="w-full max-h-[60vh]">
+          {data.map((item, index) => {
+            return (
+              <div
+                key={index}
+                className="flex w-full justify-between items-center"
+              >
+                <div className="flex items-center gap-4">
+                  <Image
+                    src={"/Card-Jacket1.png"}
+                    width={80}
+                    height={50}
+                    alt=""
+                  />
+                  <div className="flex flex-col">
+                    <span>{item.name}</span>
+                    <span className="font-thin text-xl">XXL</span>
+                  </div>
+                </div>
+                <div>
+                  <span>{item.current_price}</span>
+                </div>
+              </div>
+            );
+          })}
         </div>
+
         <div className="flex w-full justify-between mt-8">
           <span>Subtotal</span>
           <span>N35,000</span>

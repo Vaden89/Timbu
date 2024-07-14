@@ -12,13 +12,14 @@
 
 body {
   background-color: #fcfcfc;
+  width: 100%;
 }
 
 .landing-section {
   background-image: url("/Landing-Img.png");
 }
 
-@media (min-width: 768px) and (max-width: 1023px) {
+@media (min-width: 768px) and (max-width: 1024px) {
   .landing-section {
     background-image: url("/Landing-Img.png");
     background-position: center;
