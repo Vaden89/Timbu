@@ -2,16 +2,16 @@ import { NavBar } from "@/app/components/NavBar";
 import { getProductData } from "@/lib/products";
 import Image from "next/image";
 
-async function getData(id) {
-  const res = await getProductData(id);
-  console.log(res);
-  return res;
-}
+// async function getData(id) {
+//   const res = await getProductData(id);
+//   console.log(res);
+//   return res;
+// }
 
 export default function Product() {
   return (
     <main className="w-screen h-screen ">
-      <NavBar />
+      {/* <NavBar />
       <div className="flex flex-col md:flex-row lg:flex-row items-center md:items-start lg:items-start justify-center gap-8 p-4 px-8 w-full lg:h-[85vh]">
         <Image
           src={"/Card-Jeans2.png"}
@@ -47,7 +47,7 @@ export default function Product() {
             Add To Cart
           </button>
         </div>
-      </div>
+      </div> */}
     </main>
   );
 }
