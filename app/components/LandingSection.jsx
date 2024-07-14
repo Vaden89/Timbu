@@ -12,12 +12,8 @@ export const LandingSection = () => {
             <br className="hidden lg:flex" /> and fashion-forward clothing.
           </p>
           <div className="text-white flex gap-4 mt-10">
-            <button className="bg-[#377E7F] p-4 w-36 rounded-lg">
-              Shop Men
-            </button>
-            <button className="bg-[#377E7F] p-4 w-36 rounded-lg">
-              Shop Women
-            </button>
+            <button className="bg-[#377E7F] p-4 w-36 ">Shop Men</button>
+            <button className="bg-[#377E7F] p-4 w-36 ">Shop Women</button>
           </div>
         </div>
       </div>
@@ -32,12 +28,8 @@ export const LandingSection = () => {
             <br className="hidden lg:flex" /> and fashion-forward clothing.
           </p>
           <div className="text-white flex gap-4 mt-6">
-            <button className="bg-[#377E7F] p-4 w-36 rounded-lg">
-              Shop Men
-            </button>
-            <button className="bg-[#377E7F] p-4 w-36 rounded-lg">
-              Shop Women
-            </button>
+            <button className="bg-[#377E7F] p-4 w-36 ">Shop Men</button>
+            <button className="bg-[#377E7F] p-4 w-36 ">Shop Women</button>
           </div>
         </div>
         <div

@@ -7,6 +7,7 @@ import { useContext, useState, useEffect } from "react";
 export const MainCheckoutSection = () => {
   const { items } = useContext(CartContext);
   const [data, setData] = useState([]);
+  const [total, setTotal] = useState(0);
   const [loading, setloading] = useState(false);
   useEffect(() => {
     console.log(items);
@@ -18,8 +19,10 @@ export const MainCheckoutSection = () => {
     try {
       const results = await Promise.all(
         items.map(async (item) => {
-          const res = await getSingleProduct(item);
-          setData((prev) => [...prev, res]);
+          const response = await getSingleProduct(item);
+          const { response: data } = await response.json();
+          setData((prev) => [...prev, data]);
+          setTotal((prev) => prev + data.current_price);
         })
       );
     } catch (error) {
@@ -142,7 +145,7 @@ export const MainCheckoutSection = () => {
         </div>
       </div>
       <div className="w-full lg:w-1/2 flex flex-col items-center justify-start gap-4 lg:px-6 ">
-        <div className="w-full max-h-[60vh]">
+        <div className="w-full flex flex-col gap-2 max-h-[60vh]">
           {data.map((item, index) => {
             return (
               <div
@@ -171,7 +174,7 @@ export const MainCheckoutSection = () => {
 
         <div className="flex w-full justify-between mt-8">
           <span>Subtotal</span>
-          <span>N35,000</span>
+          <span>N{total}</span>
         </div>
         <div className="flex w-full justify-between">
           <span>Shipping</span>
@@ -179,7 +182,7 @@ export const MainCheckoutSection = () => {
         </div>
         <div className="flex w-full justify-between text-2xl">
           <span>Total</span>
-          <span>N40,000</span>
+          <span>N{total + 5000}</span>
         </div>
       </div>
     </div>

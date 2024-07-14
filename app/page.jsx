@@ -10,8 +10,10 @@ import { Smth3 } from "./components/Smth3";
 export default function Home() {
   return (
     <main className="w-screen h-full flex flex-col lg:gap-10">
-      <NavBar />
-      <LandingSection />
+      <div>
+        <NavBar />
+        <LandingSection />
+      </div>
       <Smth />
       <Smth2 />
       <Smth3 />

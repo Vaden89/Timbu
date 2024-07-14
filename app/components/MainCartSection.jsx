@@ -5,12 +5,18 @@ import CartContext from "../providers/context";
 import { useContext } from "react";
 import { getSingleProduct } from "../api/product/route";
 import Image from "next/image";
+import { Loading } from "./Loading";
 
 export const MainCartSection = () => {
-  const { items } = useContext(CartContext);
+  const { items, removeFromCart } = useContext(CartContext);
   const [data, setData] = useState([]);
   const [total, setTotal] = useState(0);
-  const [loading, setloading] = useState(false);
+  const [loading, setloading] = useState(true);
+  const [count, setCount] = useState(0);
+
+  const incrementCount = () => {
+    setCount(count + 1);
+  };
   const router = useRouter();
 
   useEffect(() => {
@@ -21,12 +27,13 @@ export const MainCartSection = () => {
     router.push("/checkout");
   };
   async function sth() {
-    setloading(true);
     try {
       const results = await Promise.all(
         items.map(async (item) => {
-          const res = await getSingleProduct(item);
-          setData((prev) => [...prev, res]);
+          const response = await getSingleProduct(item);
+          const { response: data } = await response.json();
+          setData((prev) => [...prev, data]);
+          setTotal((prev) => prev + data.current_price);
         })
       );
     } catch (error) {
@@ -40,16 +47,11 @@ export const MainCartSection = () => {
   }
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
 
   return (
-    <div
-      onClick={() => {
-        console.log(data);
-      }}
-      className="w-full flex flex-col lg:flex-row p-4 lg:px-8 gap-12 capitalize  lg:mb-28"
-    >
+    <div className="w-full flex flex-col lg:flex-row p-4 lg:px-8 gap-12 capitalize  lg:mb-28">
       <div className="lg:w-2/3 w-full ">
         <span className="text-2xl">Cart</span>
         <hr className="my-4" />
@@ -69,12 +71,21 @@ export const MainCartSection = () => {
                 className="flex w-full items-center justify-between text-center"
               >
                 <div className="w-1/2 flex items-center gap-4">
-                  <Image
-                    src={"/Card-Jacket1.png"}
-                    width={50}
-                    height={50}
-                    alt=""
-                  />
+                  <div className="flex items-center gap-2">
+                    <span
+                      onClick={() => {
+                        removeFromCart(item.id);
+                      }}
+                    >
+                      X
+                    </span>
+                    <Image
+                      src={"/Card-Jacket1.png"}
+                      width={50}
+                      height={50}
+                      alt=""
+                    />
+                  </div>
                   <span>{item.name}</span>
                 </div>
                 <div className="flex w-1/2 justify-between">
@@ -92,12 +103,12 @@ export const MainCartSection = () => {
         <span className="font-semibolds text-lg">Cart Totals</span>
         <div className="flex justify-between w-full font-semibold text-lg">
           <span className="font-semibold">SUBTOTAL</span>
-          <span>0</span>
+          <span>{total}</span>
         </div>
         <span className="font-semibold"> SHIPPING</span>
         <span>
           {" "}
-          Shipping: <span className="font-semibold">N35,000</span>
+          Shipping: <span className="font-semibold">N5,000</span>
         </span>
         <span>SHIPPING TO KAFACHAN</span>
         <div className="flex items-center justify-between lg:pr-4">
