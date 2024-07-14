@@ -8,8 +8,7 @@ async function getData(id) {
   return res;
 }
 
-export default async function Product({ params }) {
-  const data = await getData(params.productId);
+export default function Product({ params }) {
   return (
     <main className="w-screen h-screen ">
       <NavBar />
