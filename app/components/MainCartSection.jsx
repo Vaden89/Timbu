@@ -57,7 +57,13 @@ export const MainCartSection = () => {
       <div className="lg:w-2/3 w-full ">
         <div className="text-2xl font-medium flex justify-between">
           <span>Cart</span>
-          <button onClick={clearCart} className="text-lg text-red-500">
+          <button
+            onClick={() => {
+              clearCart();
+              window.location.reload();
+            }}
+            className="text-lg text-red-500"
+          >
             Clear cart
           </button>
         </div>
@@ -92,6 +98,7 @@ export const MainCartSection = () => {
                       width={70}
                       height={70}
                       alt=""
+                      className="w-10 lg:w-16 aspect-square"
                     />
                   </div>
                   <span className="text-start">{item.name}</span>
