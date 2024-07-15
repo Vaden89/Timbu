@@ -154,13 +154,13 @@ export const MainCheckoutSection = () => {
               >
                 <div className="flex items-center gap-4">
                   <Image
-                    src={"/Card-Jacket1.png"}
+                    src={`https://api.timbu.cloud/images/${item.photos[0].url}`}
                     width={80}
                     height={50}
                     alt=""
                   />
                   <div className="flex flex-col">
-                    <span>{item.name}</span>
+                    <span className="font-semibold">{item.name}</span>
                     <span className="font-thin text-xl">XXL</span>
                   </div>
                 </div>

@@ -43,7 +43,7 @@ export const NewInSection = () => {
           <p>Error: {error.message}</p>
         ) : (
           data
-            .slice(0, 4)
+            .slice(2, 6)
             .map((item, index) => (
               <ItemCard
                 key={index}
@@ -65,7 +65,7 @@ export const NewInSection = () => {
           <p>Error: {error.message}</p>
         ) : (
           data
-            .slice(0, 3)
+            .slice(2, 5)
             .map((item, index) => (
               <ItemCard
                 key={index}

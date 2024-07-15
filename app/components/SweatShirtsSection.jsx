@@ -1,5 +1,5 @@
 "use client";
-import { GET } from "../api/product/route";
+import { GET1 } from "../api/product/route";
 import { useEffect, useState } from "react";
 import { ItemCard } from "./ItemCard";
 
@@ -11,7 +11,7 @@ export const SweatShirtsSection = () => {
   const fetchData = async () => {
     setError(null);
     try {
-      const response = await GET();
+      const response = await GET1();
       const { response: data } = await response.json();
       setData(data.items);
     } catch (err) {
@@ -42,7 +42,7 @@ export const SweatShirtsSection = () => {
           <p>Error: {error.message}</p>
         ) : (
           data
-            .slice(0, 4)
+            .slice(6, 10)
             .map((item, index) => (
               <ItemCard
                 key={index}
@@ -64,7 +64,7 @@ export const SweatShirtsSection = () => {
           <p>Error: {error.message}</p>
         ) : (
           data
-            .slice(0, 3)
+            .slice(6, 9)
             .map((item, index) => (
               <ItemCard
                 key={index}

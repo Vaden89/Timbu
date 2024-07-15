@@ -1,7 +1,7 @@
 export const DisplaySection2 = () => {
   return (
     <div
-      className="w-full h-[50vh] lg:h-[90vh] h-max-[1706px] mt-4 flex items-center justify-center flex-col gap-4 font-light bg-no-repeat bg-cover bg-center"
+      className="w-full h-[50vh] lg:h-[90vh] h-max-[1706px] mt-4 flex items-center justify-center flex-col gap-4 font-light bg-no-repeat bg-cover bg-center mb-8"
       style={{ backgroundImage: "url('/Background.png')" }}
     >
       <h1 className="text-white text-4xl">Complete Quests</h1>

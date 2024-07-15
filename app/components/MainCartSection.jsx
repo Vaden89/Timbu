@@ -8,7 +8,7 @@ import Image from "next/image";
 import { Loading } from "./Loading";
 
 export const MainCartSection = () => {
-  const { items, removeFromCart } = useContext(CartContext);
+  const { items, removeFromCart, clearCart } = useContext(CartContext);
   const [data, setData] = useState([]);
   const [total, setTotal] = useState(0);
   const [loading, setloading] = useState(true);
@@ -40,15 +40,27 @@ export const MainCartSection = () => {
       setloading(false);
     }
   }
-
   if (loading) {
     return <Loading />;
+  }
+
+  if (data.length < 1) {
+    return (
+      <div className="w-full h-[70vh] flex items-center justify-center text-xl text-[#333]">
+        Add something to cart first 🙄
+      </div>
+    );
   }
 
   return (
     <div className="w-full flex flex-col lg:flex-row p-4 lg:px-8 gap-12 capitalize  lg:mb-28">
       <div className="lg:w-2/3 w-full ">
-        <span className="text-2xl font-medium">Cart</span>
+        <div className="text-2xl font-medium flex justify-between">
+          <span>Cart</span>
+          <button onClick={clearCart} className="text-lg text-red-500">
+            Clear cart
+          </button>
+        </div>
         <hr className="my-4" />
         <div className="flex flex-col gap-4">
           <div className="flex w-full items-center justify-between">
@@ -70,14 +82,15 @@ export const MainCartSection = () => {
                     <span
                       onClick={() => {
                         removeFromCart(item.id);
+                        window.location.reload();
                       }}
                     >
                       X
                     </span>
                     <Image
-                      src={"/Card-Jacket1.png"}
-                      width={50}
-                      height={50}
+                      src={`https://api.timbu.cloud/images/${item.photos[0].url}`}
+                      width={70}
+                      height={70}
                       alt=""
                     />
                   </div>
