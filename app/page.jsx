@@ -3,9 +3,9 @@ import { LandingSection } from "./components/LandingSection";
 import { NavBar } from "./components/NavBar";
 import { DisplaySection2 } from "./components/DisplaySection2";
 import { FooterSection } from "./components/FooterSection";
-import { Smth } from "./components/Smth";
-import { Smth2 } from "./components/Smth2";
-import { Smth3 } from "./components/Smth3";
+import { NewInSection } from "./components/NewInSection";
+import { SweatShirtsSection } from "./components/SweatShirtsSection";
+import { AccessoriesSection } from "./components/AccessoriesSection";
 
 export default function Home() {
   return (
@@ -14,12 +14,12 @@ export default function Home() {
         <NavBar />
         <LandingSection />
       </div>
-      <Smth />
-      <Smth2 />
-      <Smth3 />
+      <NewInSection />
+      <SweatShirtsSection />
+      <AccessoriesSection />
       <CategoriesCard />
       <DisplaySection2 />
-      <Smth />
+      <NewInSection />
       <FooterSection />
     </main>
   );

@@ -3,7 +3,7 @@ import { GET } from "../api/product/route";
 import { useEffect, useState } from "react";
 import { ItemCard } from "./ItemCard";
 
-export const Smth3 = () => {
+export const SweatShirtsSection = () => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -20,14 +20,15 @@ export const Smth3 = () => {
       setIsLoading(false);
     }
   };
+
   useEffect(() => {
     fetchData();
   }, []);
 
   return (
-    <div className="w-full flex flex-col gap-8 py-12 px-10">
+    <div className="w-full flex flex-col gap-8 pb-12 px-10">
       <div className="flex items-center justify-between">
-        <h1 className="text-lg lg:text-xl">Accessories</h1>
+        <h1 className="text-xl sm:text-3xl font-medium">SweatShirts</h1>
         <button className="py-2 px-6  rounded-full bg-slate-50 border-2 border-slate-200 text-[#4F4F4F]">
           View more
         </button>

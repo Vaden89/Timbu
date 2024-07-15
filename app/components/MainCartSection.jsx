@@ -12,11 +12,6 @@ export const MainCartSection = () => {
   const [data, setData] = useState([]);
   const [total, setTotal] = useState(0);
   const [loading, setloading] = useState(true);
-  const [count, setCount] = useState(0);
-
-  const incrementCount = () => {
-    setCount(count + 1);
-  };
   const router = useRouter();
 
   useEffect(() => {
@@ -53,15 +48,15 @@ export const MainCartSection = () => {
   return (
     <div className="w-full flex flex-col lg:flex-row p-4 lg:px-8 gap-12 capitalize  lg:mb-28">
       <div className="lg:w-2/3 w-full ">
-        <span className="text-2xl">Cart</span>
+        <span className="text-2xl font-medium">Cart</span>
         <hr className="my-4" />
         <div className="flex flex-col gap-4">
           <div className="flex w-full items-center justify-between">
             <span className="w-1/2">PRODUCT</span>
-            <div className="flex w-1/2 justify-between items-center text-center">
+            <div className="flex w-[40%] sm:w-1/2 justify-between items-center text-center">
               <span>PRICE</span>
               <span>QUANTITY</span>
-              <span>SUBTOTAL</span>
+              <span className="hidden sm:flex">SUBTOTAL</span>
             </div>
           </div>
           {data.map((item, index) => {
@@ -70,7 +65,7 @@ export const MainCartSection = () => {
                 key={index}
                 className="flex w-full items-center justify-between text-center"
               >
-                <div className="w-1/2 flex items-center gap-4">
+                <div className="w-1/2 flex items-center gap-6">
                   <div className="flex items-center gap-2">
                     <span
                       onClick={() => {
@@ -86,12 +81,12 @@ export const MainCartSection = () => {
                       alt=""
                     />
                   </div>
-                  <span>{item.name}</span>
+                  <span className="text-start">{item.name}</span>
                 </div>
-                <div className="flex w-1/2 justify-between">
+                <div className="flex w-[40%] sm:w-1/2 justify-between">
                   <span>N{item.current_price}</span>
                   <span>1</span>
-                  <span>N{item.current_price}</span>
+                  <span className="hidden sm:flex">N{item.current_price}</span>
                 </div>
               </div>
             );

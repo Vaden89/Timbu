@@ -3,7 +3,7 @@ import { GET } from "../api/product/route";
 import { useEffect, useState } from "react";
 import { ItemCard } from "./ItemCard";
 
-export const Smth2 = () => {
+export const AccessoriesSection = () => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -20,16 +20,17 @@ export const Smth2 = () => {
       setIsLoading(false);
     }
   };
-
   useEffect(() => {
     fetchData();
   }, []);
 
   return (
-    <div className="w-full flex flex-col gap-8 py-12 px-10">
+    <div className="w-full flex flex-col gap-8 pb-12 px-10">
       <div className="flex items-center justify-between">
-        <h1 className="text-lg lg:text-xl">SweatShirts</h1>
-        <button>View more &gt;</button>
+        <h1 className="text-xl sm:text-3xl font-medium">Accessories</h1>
+        <button className="py-2 px-6  rounded-full bg-slate-50 border-2 border-slate-200 text-[#4F4F4F]">
+          View more
+        </button>
       </div>
       <div className="hidden mt-2 w-full lg:flex flex-col md:flex-row lg:flex-row gap-8 justify-start items-center overflow-x-auto">
         {isLoading ? (
