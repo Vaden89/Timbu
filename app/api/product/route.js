@@ -1,7 +1,7 @@
 export async function GET() {
   try {
     const request = await fetch(
-      "https://timbu-get-all-products.reavdev.workers.dev/?organization_id=84a45f5b57f941d180dd4869ee2b94a0&reverse_sort=false&page=1&size=10&Appid=LWIJQL36VNAXWRT&Apikey=ec32e23f3166422a872f8434463230af20240713100116329567"
+      "https://api.timbu.cloud/products?organization_id=84a45f5b57f941d180dd4869ee2b94a0&reverse_sort=false&page=1&size=10&Appid=LWIJQL36VNAXWRT&Apikey=ec32e23f3166422a872f8434463230af20240713100116329567"
     );
 
     if (!request.ok) {
@@ -21,7 +21,7 @@ export async function GET() {
 export async function GET1() {
   try {
     const request = await fetch(
-      "https://timbu-get-all-products.reavdev.workers.dev/?organization_id=84a45f5b57f941d180dd4869ee2b94a0&reverse_sort=false&page=1&size=30&Appid=LWIJQL36VNAXWRT&Apikey=ec32e23f3166422a872f8434463230af20240713100116329567"
+      "https://api.timbu.cloud/products?organization_id=84a45f5b57f941d180dd4869ee2b94a0&reverse_sort=false&page=1&size=30&Appid=LWIJQL36VNAXWRT&Apikey=ec32e23f3166422a872f8434463230af20240713100116329567"
     );
 
     if (!request.ok) {

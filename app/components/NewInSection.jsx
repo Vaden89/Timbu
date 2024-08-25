@@ -14,6 +14,7 @@ export const NewInSection = () => {
     try {
       const response = await GET();
       const { response: data } = await response.json();
+      console.log(data);
       setData(data.items);
     } catch (err) {
       setError(err);
